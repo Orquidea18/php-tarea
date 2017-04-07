@@ -1,0 +1,20 @@
+<?php header("Content-type: text/xml"); ?>
+<?xml version="1.0"?>
+<employees>
+    <?php if ($employees) foreach ($employees as $employee): ?>
+            <employee>
+                <id><?= $employee->id ?></id>
+                <name><?= $employee->name ?></name>
+                <email><?= $employee->email ?></email>
+                <phone><?= $employee->phone ?></phone>
+                <address><?= $employee->address ?></address>
+                <position><?= $employee->position ?></position>
+                <salary><?= $employee->salary ?></salary>
+                <skills>
+                    <?php foreach ($employee->skills as $skill): ?>
+                        <skill><?= $skill->skill ?></skill>
+                    <?php endforeach; ?>
+                </skills>
+            </employee>
+        <?php endforeach; ?>
+</employees>

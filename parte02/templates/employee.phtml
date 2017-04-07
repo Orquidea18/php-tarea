@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Developers SAC</title>
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                
+                font-size: 40px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+            td, th {
+                padding: 5px;
+            }
+            th {
+                text-align: right;
+            }
+            .content{
+                width: 90%;
+                margin: 0 auto;
+                padding: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            
+        
+        <h1>Developers SAC</h1>
+        <h2>Employee</h2>
+        <table class="pure-table">
+            <tr><th>Name : </th><td><?= $employee->name ?></a></td></tr>
+            <tr><th>Email : </th><td><?= $employee->email ?></td></tr>
+            <tr><th>Phone : </th><td><?= $employee->phone ?></td></tr>
+            <tr><th>Address : </th><td><?= $employee->address ?></td></tr>
+            <tr><th>Position : </th><td><?= $employee->position ?></td></tr>
+            <tr><th>Salary : </th><td><?= $employee->salary ?></td></tr>
+            <tr><th>Skills : </th><td>&nbsp;</td></tr>
+
+            <?php foreach ($employee->skills as $skill): ?>
+
+                <tr><th>&nbsp;</th><td><?= $skill->skill ?></td></tr>
+
+            <?php endforeach; ?>
+        </table>
+        </div>
+    </body>
+</html>

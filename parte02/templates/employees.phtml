@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Developers SAC</title>
+        <style>
+            body {
+                margin: 20px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                font-size: 40px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+            td, th {
+                padding: 5px;
+                border: 1px solid #c0c0c0;
+            }
+            thead th {
+                text-align: center;
+            }
+            tbody th {
+                text-align: right;
+            }
+
+            .content{
+                width: 90%;
+                margin: 0 auto;
+                padding: 25px;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+            .container {
+                padding: 10px;
+            }
+            .button{
+                padding: 2px 10px;
+                margin: 3px;
+                border: 1px outset;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h1>Developers SAC</h1>
+            <h2>Employees</h2>
+            <div class="container">
+                <form method="get" action="<?= $router->pathFor('employee-search', ['id' => $employee->id]) ?>">
+                    <label>Email search:</label>
+                    <input type="text" name="emailSearch" value="<?=$token?>"/>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    if ($employees) 
+                        foreach ($employees as $employee): ?>
+                        <tr>
+                            <td><?= $employee->name ?></a></td>
+                            <td><?= $employee->email ?></td>
+                            <td><?= $employee->position ?></td>
+                            <td><?= $employee->salary ?></td>
+                            <td>
+                                <a class="button" href="<?= $router->pathFor('employee', ['id' => $employee->id]) ?>">view</a>
+                            </td>
+                        </tr>
+
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
